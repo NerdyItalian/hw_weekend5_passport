@@ -1,13 +1,16 @@
 //requiring all the modules needed for user.js
-var mongoose = require('mongoose'),
-    Schema = mongoose.Schema,
-    bcrypt = require('bcrypt'),
-    SALT_WORK_FACTOR = 10;
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+var bcrypt = require('bcrypt');
+var SALT_WORK_FACTOR = 10;
 
 //setting up a variable that will generate a new Schema for each user
 var UserSchema = new Schema({
     username: { type: String, required: true, index: { unique: true } },
-    password: { type: String, required: true }
+    password: { type: String, required: true },
+    firstName:{ type: String, required: true },
+    lastName: { type: String, required: true },
+    email: {type: mongoose.Schema.Types.Mixed, required: true}
 });
 
 //using the variable to check once the user has saved if there is:
